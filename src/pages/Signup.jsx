@@ -22,7 +22,7 @@ export const Signup = () => {
                 <InputBox onChange={e => { setemail(e.target.value) }} label="E-mail" />
                 <InputBox onChange={e => { setpassword(e.target.value) }} label="Password" />
                 <Button onpress={async () => {
-                    const response = await axios.post('http://localhost:4500/api/users/register/',
+                    const response = await axios.post(import.meta.env.VITE_AXIOS_URL+'api/users/register/',
                         {
                             firstname,
                             lastname,

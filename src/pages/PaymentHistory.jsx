@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+
 export function PaymentHistory() {
   const [searchQuery, setSearchQuery] = useState('');
   const [payments, setPayments] = useState([]);
@@ -24,8 +25,7 @@ export function PaymentHistory() {
     setError(null);
     
     try {
-      // Simulate network delay
-      const response = await axios.get(`http://localhost:4500/api/payments/${searchQuery}`);      
+      const response = await axios.get(`${import.meta.env.VITE_AXIOS_URL}api/payments/${searchQuery}`);      
       const data = response.data;
       setPayments(data);
     } catch (error) {
@@ -44,7 +44,7 @@ export function PaymentHistory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-    const response = await axios.post('http://localhost:4500/api/payments/pay',paymentInfo)
+    const response = await axios.post(`${import.meta.env.VITE_AXIOS_URL}api/payments/pay`,paymentInfo)
     const data = response.data
     console.log(data);
 

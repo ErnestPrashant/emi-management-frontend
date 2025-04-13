@@ -18,7 +18,7 @@ export const LoanList = () => {
     useEffect(() => {
         const fetchloans = async () => {
             try {
-                const response = await axios.get('http://localhost:4500/api/loans/' + loanId)
+                const response = await axios.get(import.meta.env.VITE_AXIOS_URL+'api/loans/' + loanId)
                 setLoans(response.data);
             }
             catch (error) {
@@ -37,14 +37,14 @@ export const LoanList = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try{
-            const response = await axios.post('http://localhost:4500/api/loans/apply',newLoan,{
+            const response = await axios.post(`${import.meta.env.VITE_AXIOS_URL}api/loans/apply`,newLoan,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
             const data = response.data;
             setRefresh((prev) => prev+1);
-            const response1 = await axios.get('http://localhost:4500/api/loans/' + loanId)
+            const response1 = await axios.get(import.meta.env.VITE_AXIOS_URL+'api/loans/' + loanId)
             setLoans(response1.data);
         }
         catch(error){

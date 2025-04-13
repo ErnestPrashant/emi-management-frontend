@@ -25,7 +25,7 @@ export const Dashboard = () => {
         const fetchLoans = async () => {
             try{
                 setLoansLoading(true)
-                const response = await axios.get('http://localhost:4500/api/loans/all');
+                const response = await axios.get(import.meta.env.VITE_AXIOS_URL+'api/loans/all');
                 setLoans(response.data);
                 setLoansError(null);
                 setStats({
@@ -46,7 +46,7 @@ export const Dashboard = () => {
     useEffect(() => {
         const fetchPayments = async () => {
             try{
-                const response = await axios.get('http://localhost:4500/api/payments/all')
+                const response = await axios.get(import.meta.env.VITE_AXIOS_URL+'api/payments/all')
                 setPayments(response.data);
                 setTotalPayments(response.data.length)
                 setPaymentsError(null);

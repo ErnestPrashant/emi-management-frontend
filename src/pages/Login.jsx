@@ -18,7 +18,7 @@ export const Login = () => {
                 <InputBox onChange={e => {setEmail(e.target.value)}} label="E-mail"/>
                 <InputBox onChange={e => {setpassword(e.target.value)}} label="Password"/>
                 <Button onpress={async () => {
-                    const response  = await axios.post('http://localhost:4500/api/users/login/',
+                    const response  = await axios.post(`${import.meta.env.VITE_AXIOS_URL}api/users/login/`,
                         {
                             email,
                             password
