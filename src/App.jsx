@@ -4,7 +4,7 @@ import {Login} from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import {LoanList} from './pages/LoanList'
 import { PaymentHistory } from './pages/PaymentHistory'
-import {Sidebar} from './components/Sidebar'
+import {Layout} from './components/Layout'
 
 import './App.css'
 
@@ -13,18 +13,15 @@ function App() {
   return (
     <>
      <BrowserRouter>
-     <div className="flex">
-     <Sidebar/>
-     <div className="ml-64 p-6 w-full min-h-screen bg-gray-100">
       <Routes>
-        <Route path='/signup' element={<Signup/>}></Route>
+        <Route path='/' element={<Signup/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
+        <Route element={<Layout/>}>
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/loanlist' element={<LoanList/>}></Route>
         <Route path='/paymenthistory' element={<PaymentHistory/>}></Route>
+        </Route>
       </Routes>
-      </div>
-      </div>
      </BrowserRouter>
     </>
   )

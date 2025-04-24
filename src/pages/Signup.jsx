@@ -6,12 +6,14 @@ import { Button } from "../components/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
     const [firstname, setfirstname] = useState("")
     const [lastname, setlastname] = useState("")
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
+    const navigate = useNavigate()
     return <div className="h-screen bg-gray-500">
         <div className="flex items-center justify-center h-full">
             <div className="bg-white px-8 py-2 rounded-lg shadow-lg w-full max-w-sm">
@@ -30,6 +32,9 @@ export const Signup = () => {
                             password
                         });
                     //localStorage.setItem("token",response.data.token)
+                    if(response.status == '201'){
+                        navigate('/login')
+                    }
                 }} label="Sign Up" />
                 <BottomWar label="Already have an account ?" to={'/login'} buttonText="Sign In" />
             </div>
