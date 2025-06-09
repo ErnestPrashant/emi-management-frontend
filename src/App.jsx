@@ -5,6 +5,8 @@ import { Dashboard } from './pages/Dashboard'
 import {LoanList} from './pages/LoanList'
 import { PaymentHistory } from './pages/PaymentHistory'
 import {Layout} from './components/Layout'
+import {Communication} from './pages/Communication'
+import {PrivateRoute} from './pages/PrivateRoute'
 
 import './App.css'
 
@@ -14,13 +16,14 @@ function App() {
     <>
      <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Signup/>}></Route>
+        <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
-        <Route element={<Layout/>}>
-        <Route path='/dashboard' element={<Dashboard/>}></Route>
+        {/* <Route element={<Layout/>}> */}
+        <Route path='/' element={<Dashboard/>}></Route>
         <Route path='/loanlist' element={<LoanList/>}></Route>
         <Route path='/paymenthistory' element={<PaymentHistory/>}></Route>
-        </Route>
+        <Route path='/communications' element={<Communication/>}></Route>
+        {/* </Route> */}
       </Routes>
      </BrowserRouter>
     </>

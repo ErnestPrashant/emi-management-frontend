@@ -16,7 +16,7 @@ export const Login = () => {
     return <div className="h-screen bg-gray-500">
         <div className="flex items-center justify-center h-full">
             <div className="bg-white px-8 py-2 rounded-lg shadow-lg w-full max-w-sm">
-                <Heading label="Sign in" />
+                <Heading label="Login" />
                 <SubHeading label="Enter Crediantials to access your account " />
                 <InputBox onChange={e => { setEmail(e.target.value) }} label="E-mail" />
                 <InputBox onChange={e => { setpassword(e.target.value) }} label="Password" />
@@ -29,7 +29,7 @@ export const Login = () => {
                             }
                         )
                         localStorage.setItem("token", response.data.token)
-                        navigate('/dashboard')
+                        navigate('/')
                         
                     } catch (error) {
                         console.log(error.response)
